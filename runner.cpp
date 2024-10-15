@@ -6,6 +6,7 @@ using namespace std;
 using namespace aws::lambda_runtime;
 using namespace Aws::Utils::Json;
 
+/*
 invocation_response my_handler(invocation_request const& req) {
     // Parse the input
     JsonValue json(req.payload);
@@ -20,8 +21,10 @@ invocation_response my_handler(invocation_request const& req) {
     
     return invocation_response::success(response.View().WriteCompact(), "application/json");
 }
+*/
 
 int main() {
-    run_handler(my_handler);
-    return 0;
+              //run_handler(my_handler);
+                JsonValue response; 
+                return 0;
 }
