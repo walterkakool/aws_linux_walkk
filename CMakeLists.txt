@@ -48,7 +48,7 @@ target_link_libraries(
 )
 
 install(
-          TARGET 
+          TARGETS 
           project_includes_libraries 
 	  DESTINATION 
 	  "${HOME_PATH_ROOT}"
