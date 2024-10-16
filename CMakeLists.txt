@@ -26,8 +26,6 @@ target_include_directories(
                              "${HOME_PATH_ROOT}/"
 )
 
-target_compile_definitions( project_includes_libraries  PUBLIC "-DBOOST_LOG_DYN_LINK")
-
 target_link_libraries(
 		        runner 
 	                project_includes_libraries 
