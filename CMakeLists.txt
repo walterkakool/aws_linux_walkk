@@ -23,15 +23,8 @@ target_include_directories(
 			     project_includes_libraries 
 			     PUBLIC include 
                              "${HOME_PATH_ROOT}" 
-                             "${aws-lambda-runtime_INCLUDE_DIRS}"
+                             "${HOME_PATH_ROOT}/"
 )
-
-target_link_libraries	  ( 
-		             project_includes_libraries   
-			     PUBLIC 
-	                     "${aws-lambda-runtime_LIBRARIES}"
-)
- 
 
 target_compile_definitions( project_includes_libraries  PUBLIC "-DBOOST_LOG_DYN_LINK")
 
