@@ -40,7 +40,7 @@ target_link_libraries	  (
 )
  
 
-target_compile_definitions(ProjLibs PUBLIC "-DBOOST_LOG_DYN_LINK")
+target_compile_definitions( project_includes_libraries  PUBLIC "-DBOOST_LOG_DYN_LINK")
 
 target_link_libraries(
 		        runner 
