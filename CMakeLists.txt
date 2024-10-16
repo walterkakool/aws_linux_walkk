@@ -9,13 +9,6 @@ set   ( CMAKE_CXX_STANDARD_REQUIRED true )
 
 option( CMAKE_INSTALL_PREFIX        "${HOME_PATH_ROOT}" )
 
-find_package(	
-	        aws-lambda-runtime 
-	        REQUIRED
-)
-
-
-
 add_library   ( 
 	         project_includes_libraries
                  ${HOME_PATH_ROOT}/runner.cpp
