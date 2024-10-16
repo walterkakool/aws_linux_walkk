@@ -54,7 +54,7 @@ install(
 	  "${HOME_PATH_ROOT}"
 )
 
-install(
+target_link_libraries(
 	  runner 
 	  project_includes_libraries	  
 )
