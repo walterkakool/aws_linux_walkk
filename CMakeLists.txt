@@ -23,7 +23,7 @@ target_include_directories(
 			     project_includes_libraries 
 			     PUBLIC include 
                              "${HOME_PATH_ROOT}" 
-                             "${HOME_PATH_ROOT}/"
+                             "${HOME_PATH_ROOT}/aws-lambda-cpp/include"
 )
 
 target_link_libraries(
