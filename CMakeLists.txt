@@ -24,31 +24,10 @@ add_executable(
                  ${HOME_PATH_ROOT}/runner.cpp
 )
 
-message(
-	STATUS 
-	"All vars: "
-
-)
-
-get_cmake_property(
-			var_bundle 
-			VARIABLES 
-
-)
-
-foreach( each_item ${var_bundle} )
-#	message( "${each_item}\n" )
-endforeach()
-
-#message( "${aws-lambda-runtime_DIR}" )
-
-#cmake_print_variables(aws-lambda-runtime_FOUND)
-
 target_include_directories( 
 			     project_includes_libraries 
 			     PUBLIC include 
-                             "${HOME_PATH_ROOT}" 	
- 			     #"${aws-lambda-runtime_DIR}"			 
+                             "${HOME_PATH_ROOT}" 		 
                              "${HOME_PATH_ROOT}/aws-lambda-cpp/include"
 )
 
@@ -62,7 +41,7 @@ install(
 target_link_libraries(
 	               project_includes_libraries 
 		       AWS::aws-lambda-runtime  
-                       #${aws-lambda-runtime_LIBRARIES}
+                      
 )
 
 
