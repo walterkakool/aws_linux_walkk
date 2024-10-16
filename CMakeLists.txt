@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(DeleteAll)
 
 add_definitions(-w)
@@ -8,6 +8,11 @@ set   ( CMAKE_CXX_STANDARD          11 )
 set   ( CMAKE_CXX_STANDARD_REQUIRED true )
 
 option( CMAKE_INSTALL_PREFIX        "${HOME_PATH_ROOT}" )
+
+find_package(
+		aws-lambda-runtime  
+		REQUIRED 
+)
 
 add_library   ( 
 	         project_includes_libraries
@@ -19,16 +24,32 @@ add_executable(
                  ${HOME_PATH_ROOT}/runner.cpp
 )
 
+message(
+	STATUS 
+	"All vars: "
+
+)
+
+get_cmake_property(
+			var_bundle 
+			VARIABLES 
+
+)
+
+foreach( each_item ${var_bundle} )
+#	message( "${each_item}\n" )
+endforeach()
+
+#message( "${aws-lambda-runtime_DIR}" )
+
+#cmake_print_variables(aws-lambda-runtime_FOUND)
+
 target_include_directories( 
 			     project_includes_libraries 
 			     PUBLIC include 
-                             "${HOME_PATH_ROOT}" 
+                             "${HOME_PATH_ROOT}" 	
+ 			     #"${aws-lambda-runtime_DIR}"			 
                              "${HOME_PATH_ROOT}/aws-lambda-cpp/include"
-)
-
-target_link_libraries(
-		        runner 
-	                project_includes_libraries 
 )
 
 install(
@@ -39,6 +60,14 @@ install(
 )
 
 target_link_libraries(
+	               project_includes_libraries 
+		       AWS::aws-lambda-runtime  
+                       #${aws-lambda-runtime_LIBRARIES}
+)
+
+
+target_link_libraries(
 	  runner 
+          
 	  project_includes_libraries	  
 )
