@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.3)
 project(DeleteAll)
 
 add_definitions(-w)
@@ -6,45 +6,48 @@ add_definitions(-w)
 set   ( HOME_PATH_ROOT              ${CMAKE_CURRENT_SOURCE_DIR} )
 set   ( CMAKE_CXX_STANDARD          11 )
 set   ( CMAKE_CXX_STANDARD_REQUIRED true )
-
-option( CMAKE_INSTALL_PREFIX        "${HOME_PATH_ROOT}" )
+#set   ( CMAKE_PREFIX_PATH        "${HOME_PATH_ROOT}/AWSInstalls" )
 
 find_package(
-		aws-lambda-runtime  
-		REQUIRED 
+                aws-lambda-runtime
+                REQUIRED
+                #PATHS
+                #"${HOME_PATH_ROOT}/AWSInstalls"
 )
 
-add_library   ( 
-	         project_includes_libraries
+#find_package( AWSSDK REQUIRED )
+
+add_library   (
+                 project_includes_libraries
                  ${HOME_PATH_ROOT}/runner.cpp
 )
 
 add_executable(
-	         runner
+                 runner
                  ${HOME_PATH_ROOT}/runner.cpp
 )
 
-target_include_directories( 
-			     project_includes_libraries 
-			     PUBLIC include 
-                             "${HOME_PATH_ROOT}" 		 
+target_include_directories(
+                             project_includes_libraries
+                             PUBLIC include
+                             "${HOME_PATH_ROOT}"
                              "${HOME_PATH_ROOT}/aws-lambda-cpp/include"
 )
 
 install(
-          TARGETS 
-          project_includes_libraries 
-	  DESTINATION 
-	  "${HOME_PATH_ROOT}"
+          TARGETS
+          project_includes_libraries
+          DESTINATION
+          "${HOME_PATH_ROOT}"
 )
 
 target_link_libraries(
-	               project_includes_libraries 
-		       AWS::aws-lambda-runtime  
-                      
+                       project_includes_libraries
+                       AWS::aws-lambda-runtime
+
 )
 
 target_link_libraries(
-	  		runner           
-	  		project_includes_libraries	  
+                        runner
+                        project_includes_libraries
 )
