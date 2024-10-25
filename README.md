@@ -1,3 +1,6 @@
+# Current ticket
+• Figuring out a C++ executable to delete all instances in AWS Lambda;
+
 # Intro
 aws_linux_walkk
 # Github repo set-up tutorial
