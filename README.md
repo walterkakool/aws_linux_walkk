@@ -1,4 +1,4 @@
-# Current ticket
+# Current ticket (regarding an online multi-players Blackjack mobile game)
 • Figuring out a C++ executable to delete all instances in AWS Lambda;\
 • Sub-path coming up;
 
