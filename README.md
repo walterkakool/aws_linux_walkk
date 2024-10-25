@@ -17,4 +17,8 @@ https://youtu.be/KYdwu_zLXec?si=KNOLvxa3vbwfyRhZ\
 # EC2 instance set up 
 https://youtu.be/dZ2KgZ5zPdg
 
+# Docker escalates compiling
+Under construction...
+
 # Lambda ( C++ && python )
+Under construction...
